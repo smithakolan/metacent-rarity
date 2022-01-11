@@ -9,7 +9,7 @@ Created on Mon Jan 10 17:25:13 2022
 import requests
 import time
 import json
-import collection_dapps as cdapps
+import slug_names as cdapps
 from pyspark.sql import SparkSession, functions, types
 import sys
 assert sys.version_info >= (3, 5)  # make sure we have Python 3.5+
