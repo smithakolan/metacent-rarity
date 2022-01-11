@@ -26,7 +26,7 @@ def main():
     )
 
     for slug in dapp_slug_names:
-        slugStatsUrl = "https://api.opensea.io/api/v1/collection/" + slug + "/stats"
+        slugStatsUrl = "https://api.opensea.io/api/v1/collection/" + slug
 
         response = requests.request(
             "GET", slugStatsUrl, headers=headers, params=params)
@@ -35,11 +35,12 @@ def main():
             print('Dapp Stats Not found for {0} '.format(slug))
         else:
             data = response.json()
-            data['stats']['slug'] = slug
-            response_list.append(data['stats'])
+            #data['stats']['slug'] = slug
+            response_list.append(data)
 
     json_rdd = sc.parallelize(response_list)
     json_rdd.map(json.dumps).saveAsTextFile("DAppStats")
+    
 
 
 if __name__ == '__main__':
