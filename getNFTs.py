@@ -29,17 +29,17 @@ def main():
     collectionsFile = open('slug_coll.txt', 'r')
     Collections = collectionsFile.readlines()
     for collection in Collections:
-        int i = 0
-        
+        i = 0
+
     slug_names_list = cdapps.collection_slug_names
     print(slug_names_list)
     response_list = []
     slug_name = 'cryptopunks'
     # call api for every slug name on the list
-    #for slug_name in slug_names_list[25:29]:
+    # for slug_name in slug_names_list[25:29]:
     i = 0
     response = get_dapps(slug_name, 0)
-            
+
     data = response.json()
     if(data['assets'] and len(data['assets']) > 0):
         response_list.append(data['assets'])
