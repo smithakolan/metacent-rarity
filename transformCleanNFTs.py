@@ -129,7 +129,7 @@ def get_selective_fields(nft_object, dapp_name):
 def main():
     # retrieve data for every dapp collection
     for i in range(len(cdapps.collection_slug_names)):
-        i = 6
+
         dapp_name = cdapps.collection_slug_names[i]
         nft_json = spark.read.json("nftdata/"+dapp_name+"*")
         # selecting required json fields for use cases
@@ -142,8 +142,6 @@ def main():
         # writing to a local file
         with open("cleanednfts/"+dapp_name+".json", "wb") as f:
             f.write(json_string.encode("utf-8"))
-
-        break
 
 
 if __name__ == '__main__':
