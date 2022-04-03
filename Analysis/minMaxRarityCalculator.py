@@ -6,12 +6,6 @@ Created on Sat Apr  2 13:55:06 2022
 @author: smithakolan
 """
 
-"""
-1. Calculating rarity for each NFT
-2. Create a new pandas dataframe for each Dapp which contains ['id','token_id', 'nft_name', 'image_url', 'slug', 'last_sale_total_price', 'rarity']
-3. Rarity is calculated by looking at count of attributes as well as the number of sales of the NFT & last_sale_total_price
-4. At the end, a csv is created for each Dapp.
-"""
 
 #import getDataFromDB as getNFT
 import json
