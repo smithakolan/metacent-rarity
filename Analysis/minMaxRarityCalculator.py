@@ -16,6 +16,7 @@ Created on Sat Apr  2 13:55:06 2022
 #import getDataFromDB as getNFT
 import json
 import pandas as pd
+import numpy as np
 
 
 dappFile = open('/Users/smithakolan/Documents/GitHub/metacent-rarity/dapps.json')
@@ -50,27 +51,7 @@ print(rarityRanges)
 
 dappFile.close()
 
-"""
-nftFile = open('/Users/smithakolan/Documents/GitHub/metacent-rarity/cleanednfts/' + slug +'.json')
-nftData = json.load(nftFile)
-
-nftCount = len(nftData)
-
-traitCount = len((nftData[1]['traits']))
-
-rarity = 0
-for trait in nftData[1]['traits']:
-    rarity += total_supply / trait['trait_count']
-    #print(rarity)
-    
-nftData[1]['rarity'] = rarity
-
-print(nftData[1]) 
-
-#rarity
-
-#for i in count:
-    
-
-nftFile.close()
-"""
+np.savetxt("rarityRanges.csv", 
+           rarityRanges,
+           delimiter =", ", 
+           fmt ='% s')
