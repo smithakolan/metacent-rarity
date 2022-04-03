@@ -19,32 +19,51 @@ import pandas as pd
 
 
 dappFile = open('/Users/smithakolan/Documents/GitHub/metacent-rarity/dapps.json')
-data = json.load(dappFile)
+dappData = json.load(dappFile)
 
-print(len(data))
-total_supply = data[0]['stats']['total_supply']
-
-slug = data[0]['slug']
-
+print(len(dappData))
+rarityRanges = []
+for i in range(0,len(dappData)):
+    slug = dappData[i]['slug']
+    nftCount = dappData[i]['stats']['count']
+    
+    traitCount = []
+    minRarity = 0
+    maxRarity = 0
+    for traitType in dappData[i]['traits']:
+        for iTrait in dappData[i]['traits'][traitType]:
+            traitCount.append(dappData[i]['traits'][traitType][iTrait])
+        traitCount.sort()
+        print(traitCount)
+        maxRarity += nftCount/traitCount[0]
+        minRarity += nftCount/traitCount[-1]
+        traitCount = []
+    rarityRanges.append([slug, nftCount, minRarity, maxRarity])
+    traitCount = []
+    minRarity = 0
+    maxRarity = 0
+    
+print(rarityRanges)    
 
 
 dappFile.close()
 
+"""
 nftFile = open('/Users/smithakolan/Documents/GitHub/metacent-rarity/cleanednfts/' + slug +'.json')
-data = json.load(nftFile)
+nftData = json.load(nftFile)
 
-nftCount = len(data)
+nftCount = len(nftData)
 
-traitCount = len((data[1]['traits']))
+traitCount = len((nftData[1]['traits']))
 
 rarity = 0
-for trait in data[1]['traits']:
+for trait in nftData[1]['traits']:
     rarity += total_supply / trait['trait_count']
     #print(rarity)
     
-data[1]['rarity'] = rarity
+nftData[1]['rarity'] = rarity
 
-print(data[1]) 
+print(nftData[1]) 
 
 #rarity
 
@@ -52,3 +71,4 @@ print(data[1])
     
 
 nftFile.close()
+"""
