@@ -22,6 +22,7 @@ def getRarity(slug, totalSupply, minRarity, maxRarity):
     nftFile = open('/Users/smithakolan/Documents/GitHub/metacent-rarity/cleanednfts/' + slug +'.json')
     nftData = json.load(nftFile)
     
+    rarityList = []
     nftCount = len(nftData)
     for i in range(0, nftCount):
         rarity = 0
@@ -31,10 +32,30 @@ def getRarity(slug, totalSupply, minRarity, maxRarity):
         rarity= (rarity-minRarity)/(maxRarity-minRarity)    
         #print(rarity)           
         nftData[i]['rarity'] = rarity
+        rarityList.append(rarity)
     
+
     nftFile.close()
-    with open('/Users/smithakolan/Documents/GitHub/metacent-rarity/cleanednfts/' + slug +'.json', 'w') as output:
-        json.dump(nftData, output)
+    rankList = calculateRank(rarityList)
+    for i in range(0, nftCount):
+        nftData[i]['rarity_rank'] = rankList[i]
+        
+        
+    #with open('/Users/smithakolan/Documents/GitHub/metacent-rarity/cleanednfts/' + slug +'.json', 'w') as output:
+        #json.dump(nftData, output)
+ 
+        
+def calculateRank(vector):
+  a={}
+  rank=1
+  for num in sorted(vector):
+    if num not in a:
+      a[num]=rank
+      rank=rank+1
+  return[a[i] for i in vector]
+
+
+    
 
 for index in range(0,1):
     slug = df.loc[index,'slug']
