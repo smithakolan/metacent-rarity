@@ -17,7 +17,7 @@ aws_db_url = 'https://dynamodb.us-west-2.amazonaws.com'
 #     aws_secret_access_key='aws_keys.ACCESS_KEY', region_name='us-west-2', endpoint_url=aws_db_url)
 
 dynamodb = boto3.resource(
-    'dynamodb', region_name='us-west-2', endpoint_url=local_db_url)
+    'dynamodb', region_name='us-west-2', endpoint_url=aws_db_url)
 
 
 def create_dapps_table():
