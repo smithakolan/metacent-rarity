@@ -1,7 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: swaathi
+"""
+
 import pandas as pd
 
 
 def get_twitter_accounts(dapps_df):
+    """
+    get_twitter_accounts - gets the twitter account name and slug name of dapps
+    :param dapp_df: dapps dataframe
+    :return: list of dapp slugs with their twitter account name
+    """
     twitter_slugs = []
     for i in range(len(dapps_df)):
         dapp = dapps_df.iloc[i]

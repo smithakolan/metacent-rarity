@@ -1,9 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: swaathi
+"""
 import tweepy
 import json
 import pandas as pd
 
 
 def get_twitter_accounts():
+    """
+    get_twitter_accounts - retrieve twitter handle names from Dapps
+    :return: List of twitter usernames of Dapps
+    """
     twitter_username = []
     dapps_df = pd.read_json('dapps.json')
 
@@ -19,6 +28,12 @@ def get_twitter_accounts():
 
 
 def get_twitter_data(auth, dapp_twitter_accounts):
+    """
+    get_twitter_data - retrieve twitter account details from twitter API
+    :param auth: auth token
+    :param dapp_twitter_accounts: names of the twitter account
+    :return: twitter account details of dapps
+    """
     api = tweepy.API(auth)
     # getting the users by screen names
     users = api.lookup_users(screen_names=dapp_twitter_accounts)
@@ -26,6 +41,11 @@ def get_twitter_data(auth, dapp_twitter_accounts):
 
 
 def get_dapps_details(twitter_details):
+    """
+    get_dapps_details - processes the twitter data and stores only the required fields
+    :param twitter_details: twitter data of dapps
+    :return: stores processed twitter data to json file
+    """
     users_obj = []
     for user in twitter_details:
         u_obj = {

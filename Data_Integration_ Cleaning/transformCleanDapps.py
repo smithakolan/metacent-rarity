@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: swaathi
+"""
+
 import json
 from pyspark.sql import SparkSession
 import sys
@@ -5,6 +11,11 @@ assert sys.version_info >= (3, 5)  # make sure we have Python 3.5+
 
 
 def get_selective_fields(dapps_obj):
+    """
+    get_selective_fields - retrieves required fields from a dapp object
+    :param dapps_obj: single dapp object
+    :return: returns a new dapp object with only required fields
+    """
     del dapps_obj['collection']['editors']
     return dapps_obj['collection']
 

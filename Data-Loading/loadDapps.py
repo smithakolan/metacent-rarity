@@ -5,19 +5,21 @@
 """
 import boto3
 import json
-# import keys as aws_keys
 from decimal import Decimal
 import time
-AWS_ACCESS_KEY_ID = 'AKIA6HKFE2HGNKWG447W'
-AWS_SECRET_ACCESS_KEY = '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'
-local_db_url = 'http://localhost:8000'
-aws_db_url = 'https://dynamodb.us-west-2.amazonaws.com'
-# dynamodb = boto3.resource(
-#     'dynamodb', aws_access_key_id='aws_keys.ACCESS_ID',
-#     aws_secret_access_key='aws_keys.ACCESS_KEY', region_name='us-west-2', endpoint_url=aws_db_url)
 
+AWS_ACCESS_KEY_ID = 'xxxxxxxxxxxxxxxxxxxx'
+AWS_SECRET_ACCESS_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxx'
+
+aws_db_url = 'https://dynamodb.us-west-2.amazonaws.com'
 dynamodb = boto3.resource(
-    'dynamodb', region_name='us-west-2', endpoint_url=aws_db_url)
+    'dynamodb', aws_access_key_id=AWS_ACCESS_KEY_ID,
+    aws_secret_access_key=AWS_SECRET_ACCESS_KEY, region_name='us-west-2', endpoint_url=aws_db_url)
+
+# Local DynamoDB for testing
+# local_db_url = 'http://localhost:8000'
+# dynamodb = boto3.resource(
+#     'dynamodb', region_name='us-west-2', endpoint_url=local_db_url)
 
 
 def create_dapps_table():
@@ -65,17 +67,13 @@ def insert_into_table(dapps):
 
 
 if __name__ == '__main__':
-    # dynamodb_client = boto3.client('dynamodb')
-    # response = dynamodb_client.describe_table(TableName='NFTs')
-    # print(response)
 
     # Create Table
-    # dapp_table = create_dapps_table()
-    # print('table', dapp_table)
-    # to wait for the table to get created
-    # time.sleep(60)
+    dapp_table = create_dapps_table()
 
-    # 4178 added
+    # to wait for the table to get created
+    time.sleep(60)
+
     # read json file
     with open("./top_dapps.json") as json_file:
         dapp_list = json.load(json_file, parse_float=Decimal)

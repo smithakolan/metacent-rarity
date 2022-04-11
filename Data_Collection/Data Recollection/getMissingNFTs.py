@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: swaathi
+"""
 import requests
 import time
 import pandas as pd
@@ -38,7 +43,7 @@ def main():
         # dapp_name
         dapp_name = dapps_df.iloc[i]
         dapp_name = dapp_name['slug']
-        print(dapp_name)
+
         missing_df = pd.read_json(dapp_name + '_missing.json')
         # print(missing_df.head())
         # contract_address

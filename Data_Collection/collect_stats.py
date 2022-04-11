@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan 10 17:25:13 2022
-
 @author: smithakolan
 """
 
@@ -40,7 +38,6 @@ def main():
 
     json_rdd = sc.parallelize(response_list)
     json_rdd.map(json.dumps).saveAsTextFile("DAppStats")
-    
 
 
 if __name__ == '__main__':

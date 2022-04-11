@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+@author: swaathi
+"""
 import requests
 import time
 import pandas as pd
@@ -5,12 +10,17 @@ import json
 
 
 def get_asset(asset_contract_address, token_id):
+    """
+    get_assets - retrieve nfts from Opensea API
+    :param asset_contract_address: contract address of the dapp
+    :param token_id: token id of the nft
+    :return: returns NFT
+    """
 
     url = "https://api.opensea.io/api/v1/asset/" + \
         asset_contract_address+"/" + str(token_id)+"/"
 
-    headers = {"X-API-KEY": "24fba988013a492b8e359d6cb2331e0f"}
-    #headers = {"X-API-KEY": "f88ff06861d34122a3d4eb20609fe092"}
+    headers = {"X-API-KEY": "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
 
     response = requests.request("GET", url, headers=headers)
 
@@ -36,7 +46,6 @@ def main():
         # dapp_name
         dapp_name = dapps_df.iloc[i]
         dapp_name = dapp_name['slug']
-        print(dapp_name)
         # contract_address
         asset_contract_address = dapps_df.iloc[i, 1]
         asset_contract_address = asset_contract_address[0]['address']
