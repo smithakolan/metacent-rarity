@@ -189,7 +189,10 @@ We tried numerous graphing libraries like NetworkX and Graph-tools, and we ultim
 ## Identifying Communities
 Making use of the transaction data, we computed modularity of each network which gives us an idea if communities exist. Communites refer to wallets that are frequently trading between each other. 
 
-## Price evalution with XGBoost
+## Price evaluation with XGBoost
+Another important feature which provides a lot of value for NFT investors is a price evaluation of NFTs. This is a feature which will inform investors if an NFT is under-valued or over-valued, based on looking at factors like rarity, last sold price and also the number of times an NFT has been sold. We believe these factors really play a major role in determining the price of an NFT. The number of times an NFT has been sold is indicative of the interest in it. The last sold price gives a really good measure of what price a particular NFT can be sold for in the future. 
+
+
 
 
 
