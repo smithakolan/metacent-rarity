@@ -12,11 +12,9 @@ from datetime import datetime
 import os
 import top10Dapps
 
+#Create dataset with individual NFT data
 dapps = top10Dapps.top_10_dapps
 
-print(dapps)
-
-df = pd.read_csv("/Users/smithakolan/transaction_data/unprocessed-cryptopunks.csv")
 
 
 for dapp in dapps:
