@@ -185,3 +185,12 @@ Rarity is a tremendously important metric that defines the price of an NFT. It c
 Transaction are a excellent way to visualize the NFT market and see the spread of NFT across wallets. For this we collected transactional data from the ethereum blockchain. By nature, blockchain allow anonyminty, and hence we don't have information of the owners of each wallet address. We chose to represent the NFT transaction data in a multi- directed weighted graph MDG(V,E) with a set of nodes V and edges E. Each node represent a unique wallet address and each directed edge represents a single transaction. Each node is weighted on the number of incoming edges it has, hence the number of NFTs it has. Each edge is weighted base on the cost of the transaction, i.e the price paid for the NFT. Across the top collections we have chosen, we observed similiar trends in that there were a few key players who had alot of NFTs in their wallets.
 
 We tried numerous graphing libraries like NetworkX and Graph-tools, and we ultimately ended up choosing dephi as it is a powerful graphing software that is capabale with dealing with a large number or nodes and edges while at the same time creating high quality visualizations.
+
+## Identifying Communities
+Making use of the transaction data, we computed modularity of each network which gives us an idea if communities exist. Communites refer to wallets that are frequently trading between each other. 
+
+## Price evalution with XGBoost
+
+
+
+
