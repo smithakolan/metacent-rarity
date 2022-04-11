@@ -176,12 +176,12 @@ python Data-Loading\loadNFT.py
 ```
 
 <br /><br />
+#Analysis
 
-#### Rarity calculation
+## Rarity Factor
+Rarity is a tremendously important metric that defines the price of an NFT. It can be determined in a variety of different ways. In our approach on rarity, we look at the attributes of each NFT and algorithmicly calculated how ubiquitous or rare each of those attributes are. Based on this, we were able to come up with a rarity factor for each NFT. We collected the data needed from Opensea, one of the largest NFT marketplaces.
 
-#### Graph Analysis of NFT transactions of each dapp
+## Transaction Maps
+Transaction are a excellent way to visualize the NFT market and see the spread of NFT across wallets. For this we collected transactional data from the ethereum blockchain. By nature, blockchain allow anonyminty, and hence we don't have information of the owners of each wallet address. We chose to represent the NFT transaction data in a multi- directed weighted graph MDG(V,E) with a set of nodes V and edges E. Each node represent a unique wallet address and each directed edge represents a single transaction. Each node is weighted on the number of incoming edges it has, hence the number of NFTs it has. Each edge is weighted base on the cost of the transaction, i.e the price paid for the NFT. Across the top collections we have chosen, we observed similiar trends in that there were a few key players who had alot of NFTs in their wallets.
 
-Graph-Based Analysis of Ethereum Transactions:
-Data collection: Made use of SQL quries on FlipSideCrypto application
-
-#### Price prediction of NFTs using Machine Learning
+We tried numerous graphing libraries like NetworkX and Graph-tools, and we ultimately ended up choosing dephi as it is a powerful graphing software that is capabale with dealing with a large number or nodes and edges while at the same time creating high quality visualizations.
