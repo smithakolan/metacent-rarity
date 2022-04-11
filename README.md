@@ -192,7 +192,9 @@ Making use of the transaction data, we computed modularity of each network which
 ## Price evaluation with XGBoost
 Another important feature which provides a lot of value for NFT investors is a price evaluation of NFTs. This is a feature which will inform investors if an NFT is under-valued or over-valued, based on looking at factors like rarity, last sold price and also the number of times an NFT has been sold. We believe these factors really play a major role in determining the price of an NFT. The number of times an NFT has been sold is indicative of the interest in it. The last sold price gives a really good measure of what price a particular NFT can be sold for in the future. 
 
-
+## Website for results
+Website URL: https://metacent.herokuapp.com/home
+Website Git Repo: https://github.com/smithakolan/metacent-website
 
 
 
