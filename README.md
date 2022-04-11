@@ -54,7 +54,6 @@ The program produces a HDFS folder called nftdata. The file from this folder is 
 
 <br /><br />
 
-<br /> <br />
 
 #### Extraction of Google Trends
 
